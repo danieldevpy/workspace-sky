@@ -2,7 +2,7 @@
 services:
   workspace-backend:
     container_name: workspace-backend
-    build: ./backend
+    build: ./backend/
     ports:
       - "8000:8000"
     networks:

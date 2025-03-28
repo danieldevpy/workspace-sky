@@ -39,7 +39,7 @@ const providers: Provider[] = [
           throw new Error('Email e senha são obrigatórios');
         }
         // 1. Primeiro obtém os tokens JWT
-        const tokenResponse = await fetch('http://localhost:8000/api/token/', {
+        const tokenResponse = await fetch('http://workspace-backend:8000/api/token/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const providers: Provider[] = [
         }
 
         // 2. Agora obtém os dados do usuário
-        const userResponse = await fetch('http://localhost:8000/api/user/me/', {
+        const userResponse = await fetch('http://workspace-backend:8000/api/user/me/', {
           headers: {
             'Authorization': `Bearer ${data.access}`,
           },

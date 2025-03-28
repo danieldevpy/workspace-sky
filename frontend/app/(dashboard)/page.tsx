@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation';
 
 async function GetDataApi(accessToken?: string) {
     try {
-        const response = await fetch('http://localhost:8000/api/workspaces/', {
+        const response = await fetch('http://workspace-backend:8000/api/workspaces/', {
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
             },

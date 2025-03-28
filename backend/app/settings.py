@@ -81,7 +81,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # URL do seu frontend
+    "http://workspace-frontend:3000",  # URL do seu frontend
+    
 ]
 
 CORS_ALLOW_CREDENTIALS = True
