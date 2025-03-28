@@ -1,0 +1,21 @@
+
+services:
+  workspace-backend:
+    container_name: workspace-backend
+    build: ./backend
+    ports:
+      - "8000:8000"
+    networks:
+      - workspace
+    
+  workspace-frontend:
+    container_name: workspace-frontend
+    build: ./frontend/
+    ports:
+      - "3000:3000"
+    networks:
+      - workspace
+
+networks:
+  workspace:
+    driver: bridge
