@@ -3,16 +3,19 @@ services:
   workspace-backend:
     container_name: workspace-backend
     build: ./backend/
+    env_file:
+      - .env
     ports:
       - "${WORKSPACE_BACKEND_PORT}:8000"
     networks:
       - workspace
-    
+      - cisbaf_network_apps
+
   workspace-frontend:
     container_name: workspace-frontend
     build: ./frontend/
     env_file:
-      - .env.local
+      - .env
     ports:
         - "${WORKSPACE_FRONTEND_PORT}:3000"
     networks:
@@ -21,3 +24,5 @@ services:
 networks:
   workspace:
     driver: bridge
+  cisbaf_network_apps:
+    external: true
