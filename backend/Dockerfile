@@ -1,6 +1,9 @@
 FROM python:3.12.9
 
-RUN apt-get install python3-dev default-libmysqlclient-dev build-essential pkg-config
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gcc libpq-dev pkg-config default-libmysqlclient-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
