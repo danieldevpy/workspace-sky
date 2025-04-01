@@ -15,7 +15,7 @@ interface WorkSpaceApiData {
 // Modifique a função para receber o token diretamente
 export async function MakeNavigationRoute(accessToken: string) {
     try {
-        const response = await fetch('http://workspace-backend:8000/api/workspaces/', {
+        const response = await fetch(process.env.BACKEND_URL + '/api/workspaces/', {
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
             },

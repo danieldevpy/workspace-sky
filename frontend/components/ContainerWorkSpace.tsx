@@ -23,6 +23,10 @@ export default function ContainerWorkSpace({ workspace }: { workspace: WorkSpace
         setUpdatedUrls(prev => ({ ...prev, [pageId]: newUrl }));
     };
 
+    // const replaceUrl = (url: string) => {
+    //   return url.replace('')
+    // }
+
     const handleClose = () => setEmbedVisible(false);
     const handleOpen = () => setEmbedVisible(true);
 
