@@ -4,7 +4,7 @@ services:
     container_name: workspace-backend
     build: ./backend/
     ports:
-      - "{WORKSPACE_BACKEND_PORT}:8000"
+      - "${WORKSPACE_BACKEND_PORT}:8000"
     networks:
       - workspace
     
@@ -12,7 +12,7 @@ services:
     container_name: workspace-frontend
     build: ./frontend/
     ports:
-      - "{WORKSPACE_FRONTEND_PORT}:3000"
+      - "${WORKSPACE_FRONTEND_PORT}:3000"
     networks:
       - workspace
 
