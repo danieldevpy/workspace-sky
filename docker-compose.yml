@@ -6,7 +6,7 @@ services:
     env_file:
       - .env
     ports:
-      - "${WORKSPACE_BACKEND_PORT}:8000"
+      - "${WORKSPACE_BACKEND_PORT}:80"
     networks:
       - workspace
       - cisbaf_network_apps
