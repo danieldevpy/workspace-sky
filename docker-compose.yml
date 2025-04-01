@@ -11,8 +11,10 @@ services:
   workspace-frontend:
     container_name: workspace-frontend
     build: ./frontend/
+    env_file:
+      - .env.local
     ports:
-      - "${WORKSPACE_FRONTEND_PORT}:3000"
+        - "${WORKSPACE_FRONTEND_PORT}:3000"
     networks:
       - workspace
 
