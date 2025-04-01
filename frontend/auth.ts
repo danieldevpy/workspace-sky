@@ -27,6 +27,7 @@ interface DjangoTokenResponse {
   refresh: string;
 }
 
+
 const providers: Provider[] = [
   Credentials({
     credentials: {
@@ -39,7 +40,7 @@ const providers: Provider[] = [
           throw new Error('Email e senha são obrigatórios');
         }
         // 1. Primeiro obtém os tokens JWT
-        const tokenResponse = await fetch('http://localhost:8000/api/token/', {
+        const tokenResponse = await fetch(process.env.BACKEND_URL+'/api/token/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -58,7 +59,7 @@ const providers: Provider[] = [
         }
 
         // 2. Agora obtém os dados do usuário
-        const userResponse = await fetch('http://localhost:8000/api/user/me/', {
+        const userResponse = await fetch(process.env.BACKEND_URL + '/api/user/me/', {
           headers: {
             'Authorization': `Bearer ${data.access}`,
           },
@@ -90,7 +91,6 @@ const providers: Provider[] = [
 export const providerMap = providers.map((provider) => {
   if (typeof provider === 'function') {
     const providerData = provider();
-    console.log("pp", providerData)
     return { id: providerData.id, name: providerData.name };
   }
   return { id: provider.id, name: provider.name };

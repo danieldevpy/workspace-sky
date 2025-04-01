@@ -10,3 +10,4 @@ RUN npm install -y
 RUN npm run build
 
 CMD [ "npm", "run", "start" ]
+

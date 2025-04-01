@@ -6,7 +6,7 @@ import WorkspaceClient from '@/components/WorkSpaceClient';
 
 async function GetDataApi(accessToken?: string) {
 
-    const response = await fetch('http://localhost:8000/api/workspaces/', {
+    const response = await fetch(process.env.BACKEND_URL + '/api/workspaces/', {
         headers: {
             'Authorization': `Bearer ${accessToken}`,
         },
@@ -16,6 +16,12 @@ async function GetDataApi(accessToken?: string) {
     if (!response.ok) throw new Error('Falha ao carregar workspaces');
     
     const workspaces: WorkSpace[] = await response.json();
+    workspaces.forEach((workspace)=>{
+        workspace.image = workspace.image 
+        ? `/api/image-proxy?url=${encodeURIComponent(workspace.image)}` 
+        : undefined
+    })
+
     return workspaces;
 }
 

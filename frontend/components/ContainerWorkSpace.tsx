@@ -6,7 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { WorkSpace } from "@/schema/WorkSpace";
-import EmbedWorkPage from "./EmbedWorkPage";
+import {EmbedWorkPage}  from "./Embed/EmbedWorkPage";
 
 export default function ContainerWorkSpace({ workspace }: { workspace: WorkSpace }) {
     const [embedVisible, setEmbedVisible] = React.useState(false);
@@ -22,6 +22,10 @@ export default function ContainerWorkSpace({ workspace }: { workspace: WorkSpace
     const handleUpdateUrl = (pageId: number, newUrl: string) => {
         setUpdatedUrls(prev => ({ ...prev, [pageId]: newUrl }));
     };
+
+    // const replaceUrl = (url: string) => {
+    //   return url.replace('')
+    // }
 
     const handleClose = () => setEmbedVisible(false);
     const handleOpen = () => setEmbedVisible(true);
