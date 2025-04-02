@@ -1,4 +1,4 @@
-import { WorkPage } from '@/schema/WorkSpace';
+import { WorkPage } from '@/app/(dashboard)/workspace/schema/WorkSpace';
 
 export interface EmbedWorkPageModalProps {
   open: boolean;

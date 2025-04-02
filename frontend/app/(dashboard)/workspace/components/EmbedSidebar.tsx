@@ -8,7 +8,7 @@ import {
   ListItemText,
   Box,
 } from '@mui/material';
-import { WorkPage } from '@/schema/WorkSpace';
+import { WorkPage } from '@/app/(dashboard)/workspace/schema/WorkSpace';
 
 interface EmbedSidebarProps {
   menuOpen: boolean;

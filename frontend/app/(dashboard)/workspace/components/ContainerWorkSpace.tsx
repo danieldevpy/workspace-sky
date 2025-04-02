@@ -5,8 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { WorkSpace } from "@/schema/WorkSpace";
-import {EmbedWorkPage}  from "./Embed/EmbedWorkPage";
+import { WorkSpace } from "@/app/(dashboard)/workspace/schema/WorkSpace";
+import { EmbedWorkPage } from "./EmbedWorkPage";
 
 export default function ContainerWorkSpace({ workspace }: { workspace: WorkSpace }) {
     const [embedVisible, setEmbedVisible] = React.useState(false);

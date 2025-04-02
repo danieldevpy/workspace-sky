@@ -12,7 +12,7 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { WorkPage } from '@/schema/WorkSpace';
+import { WorkPage } from '@/app/(dashboard)/workspace/schema/WorkSpace';
 import { EmbedControls } from './EmbedControls';
 import { EmbedSidebar } from './EmbedSidebar';
 import { LoadingOverlay } from './LoadingOverlay';
