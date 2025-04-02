@@ -1,7 +1,7 @@
 import React from 'react';
 import { auth } from "@/auth";
-import { WorkSpace } from '@/schema/WorkSpace';
-import WorkspaceClient from '@/components/WorkSpaceClient';
+import { WorkSpace } from '@/app/(dashboard)/workspace/schema/WorkSpace';
+import WorkspaceClient from '@/app/(dashboard)/workspace/components/WorkSpaceClient';
 import { redirect } from 'next/navigation';
 
 async function GetDataApi(accessToken?: string) {
@@ -13,12 +13,10 @@ async function GetDataApi(accessToken?: string) {
         next: { revalidate: 3600 } // Cache de 1 hora
     });
 
-
     if (response.status === 401 || response.status === 403) {
         // Força o redirecionamento para logout ou login
         redirect('/api/auth/signin?callbackUrl=/workspace');
     }
-
 
     if (!response.ok) throw new Error('Falha ao carregar workspaces');
     
@@ -35,7 +33,5 @@ async function GetDataApi(accessToken?: string) {
 export default async function WorkSpacePage() {
     const session = await auth();
     const workspaces = await GetDataApi(session?.accessToken);
-
-
     return <WorkspaceClient workspaces={workspaces} />;
 }
