@@ -8,7 +8,6 @@ export default async function WorkSpacePage() {
     if (!session?.accessToken) {
         redirect('/api/auth/signin?callbackUrl=/workspace');
     }
-    console.log("burro!")
 
     redirect('/workspace');
 
