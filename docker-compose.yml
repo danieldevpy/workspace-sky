@@ -3,6 +3,8 @@ services:
   workspace-backend:
     container_name: workspace-backend
     build: ./backend/
+    volumes:
+      - ./backend:/app
     env_file:
       - .env
     ports:
@@ -13,12 +15,15 @@ services:
   workspace-frontend:
     container_name: workspace-frontend
     build: ./frontend/
+    volumes:
+      - ./frontend:/app
     env_file:
       - .env
     ports:
         - "3000:3000"
     networks:
       - workspace
+    
 
 networks:
   workspace:
