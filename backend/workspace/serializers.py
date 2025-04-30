@@ -3,6 +3,7 @@ from .models import WorkSpace
 from workpage.serializers import WorkPageSerializer
 from urllib.parse import urljoin
 
+
 class WorkSpaceSerializer(serializers.ModelSerializer):
     workpages = WorkPageSerializer(many=True, read_only=True)
 
@@ -25,6 +26,3 @@ class WorkSpaceSerializer(serializers.ModelSerializer):
         
         return representation
     
-    def create(self, validated_data):
-        validated_data['user'] = self.context['request'].user
-        return super().create(validated_data)

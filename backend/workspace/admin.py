@@ -4,6 +4,6 @@ from .models import WorkSpace
 
 
 class AdminWorkSpace(admin.ModelAdmin):
-    list_filter = ['workpages']
+    list_filter = ['workpages', 'user']
 
 admin.site.register(WorkSpace, AdminWorkSpace)

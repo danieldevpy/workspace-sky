@@ -30,25 +30,15 @@ class WorkPageViewSet(viewsets.ModelViewSet):
         workpage = serializer.save()
         
         # Associa aos workspaces se fornecidos no request
-        workspaces_data = self.request.data.get('workspaces', [])
+        workspaces_data = self.request.data.get('workspaces_add', [])
         for workspace_id in workspaces_data:
             try:
                 workspace = WorkSpace.objects.get(id=workspace_id, user=self.request.user)
-                workpage.workspaces.add(workspace)
+                workspace.workpages.add(workpage)
             except WorkSpace.DoesNotExist:
                 pass
 
     def perform_update(self, serializer):
         # Atualiza o WorkPage e suas relações com workspaces
-        workpage = serializer.save()
-        
-        # Limpa e atualiza as relações com workspaces
-        if 'workspaces' in self.request.data:
-            workpage.workspaces.clear()
-            workspaces_data = self.request.data.get('workspaces', [])
-            for workspace_id in workspaces_data:
-                try:
-                    workspace = WorkSpace.objects.get(id=workspace_id, user=self.request.user)
-                    workpage.workspaces.add(workspace)
-                except WorkSpace.DoesNotExist:
-                    pass
+        serializer.save()
+     

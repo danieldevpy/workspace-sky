@@ -1,4 +1,4 @@
-FROM python:3.12.9
+FROM python:3.12.10-slim
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends gcc libpq-dev pkg-config default-libmysqlclient-dev && \
